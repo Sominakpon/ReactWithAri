@@ -1,11 +1,22 @@
-// import { Button } from "@/components/ui/button";
+// import { , Route, Routes } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router";
+import AppLayouts from "./layouts/AppLayouts";
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh">
-      {/* <Button>Click me</Button> */}
-      <button className="bg-primary-500 hover:bg-primary-700 transition duration-500 p-4 text-xl text-white rounded cursor-pointer font-nunito">Saluuut</button>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayouts/>}>
+            <Route index element={<Home/>} />
+            <Route path="/Blog" element={<Blog/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
